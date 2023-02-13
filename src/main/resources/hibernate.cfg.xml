@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"
+        ?><!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd"
+        >
+<hibernate-configuration>
+    <session-factory>
+
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/rentacar</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.password">147852369Qw.</property>
+        <!-- update -> Entitylerinize bakar eger bunlara karsilik gelen tablolar DB de var ise oldugu gibi birakir
+                       Eger tablolar yok ise varliklara ait tablolari olusturur.
+             create -> Entitylerinize ait tum tablolari, uygulama her basladiginda tekrar tekrar olusturur.
+                       Dikkat!!! bir uygulamada create kullanilir ise veritabaninda olan veriler tamamen silinir.
+             create/Drop -> Her seferinde tablolar olusturulur, uygulama kapatilirken tum tablolar silinir.
+             -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.format_sql">true</property>
+        <!-- Hibernate bizim adimiza SQL komutlarini yazmaktadir, bu yazmakta oldugu SQL kodlarini konsol ekraninda
+             gorebilmek icin bunu aktif ederiz.
+             -->
+        <property name="hibernate.show_sql">true</property>
+        <!--
+            Hibernatin haritalaycagi tum Java Siniflarini belirtiyoruz
+            DIKKAT!! kafaniza gore her sinifi haritalayamazsiniz. Cunku hibernate @Entity ile isaretlenmemis
+            hic bir sinifi kullanamaz.
+        -->
+        <mapping class="com.Eren.Repository.entity.Arac"></mapping>
+        <mapping class="com.Eren.Repository.entity.Kisi"></mapping>
+        <mapping class="com.Eren.Repository.entity.Kiralama"></mapping>
+
+
+    </session-factory>
+</hibernate-configuration>
